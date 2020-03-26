@@ -57,7 +57,8 @@ export default class ToggleSwitch extends React.Component {
     labelStyle: PropTypes.object,
     onToggle: PropTypes.func,
     icon: PropTypes.object,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    thumbColor: PropTypes.string
   };
 
   static defaultProps = {
@@ -71,7 +72,8 @@ export default class ToggleSwitch extends React.Component {
     trackOnStyle: {},
     trackOffStyle: {},
     icon: null,
-    disabled: false
+    disabled: false,
+    thumbColor: '#ffffff'
   };
 
   offsetX = new Animated.Value(0);
@@ -91,7 +93,7 @@ export default class ToggleSwitch extends React.Component {
     justifyContent: "center",
     margin: 4,
     position: "absolute",
-    backgroundColor: "white",
+    backgroundColor: this.props.thumbColor,
     transform: [{ translateX: this.offsetX }],
     width: this.dimensions.circleWidth,
     height: this.dimensions.circleHeight,
